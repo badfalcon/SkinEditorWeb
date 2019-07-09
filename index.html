@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common/js/jquery-1.11.3.min.js"></script>
+    <script src="../common/js/three.min.js"></script>
+    <script src="../common/js/OrbitControls.js"></script>
+    <script src="../common/js/Projector.js"></script>
+    <script src="js/jscolor.js"></script>
+    <script src="js/CanvasUndoManager.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/tools.js"></script>
+    <script src="../common/js/PlayerModel.js"></script>
+    <script src="js/preview.js"></script>
+
+    <link rel="stylesheet" href="../common/css/MCElement.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="MCBackground">
+<div id="wrapper">
+    <div id="preview_space">
+        <!--<canvas id="preview" width="320px" height="320px"></canvas>-->
+    </div>
+    <div id="editor_wrapper">
+
+
+        <div id="editor_space" class="MCPopup">
+            <div id="menu_space">
+                <div class="MCButton menu" id="new">new</div>
+                <label class="MCButton menu" for="load">
+                    <input type="file" id="load" style="display:none;">
+                    load
+                </label>
+
+                <div class="MCButton menu" id="save"><a href="" download="skin.png">save</a></div>
+                <div class="MCButton menu" id="copy">copy</div>
+                <div class="MCButton menu" id="cut">cut</div>
+                <div class="MCButton menu" id="paste">paste</div>
+                <div class="MCButton menu" id="undo">←undo</div>
+                <div class="MCButton menu" id="redo">redo→</div>
+            </div>
+            <div id="tool_space" class="footer">
+                <input id="color" class="jscolor {onFineChange:'changeColor(this)'}" value="000000"><br>
+            </div>
+
+            <div id="tool_bar">
+                <ul>
+                    <li><input type="radio" name="tool" class="tool_radio" id="0" checked><label for="0"><img
+                            class="MCButton tool"
+                            src="img/brush.png"></label>
+                    </li>
+                    <li><input type="radio" name="tool" class="tool_radio" id="1"><label for="1"><img
+                            class="MCButton tool"
+                            src="img/eraser.png"></label>
+                    </li>
+                    <li><input type="radio" name="tool" class="tool_radio" id="2"><label for="2"><img
+                            class="MCButton tool"
+                            src="img/color_dropper.png"></label>
+                    </li>
+                    <li><input type="radio" name="tool" class="tool_radio" id="3"><label for="3"><img
+                            class="MCButton tool"
+                            src="img/paint_bucket.png"></label>
+                    </li>
+                    <li><input type="radio" name="tool" class="tool_radio" id="4"><label for="4"><img
+                            class="MCButton tool"
+                            src="img/line.png"></label>
+                    </li>
+                    <li><input type="radio" name="tool" class="tool_radio" id="5"><label for="5"><img
+                            class="MCButton tool"
+                            src="img/rectangle.png"></label>
+                    </li>
+                    <li><input type="radio" name="tool" class="tool_radio" id="6"><label for="6"><img
+                            class="MCButton tool"
+                            src="img/frectangle.png"></label>
+                        <!--<input type="radio" name="tool" class="tool" id="7" checked><label for="7"><img src="img/select.png"></label>-->
+                    </li>
+                    <li><input type="radio" name="tool" class="tool_radio" id="8"><label for="8"><img
+                            class="MCButton tool"
+                            src="img/feraser.png"></label>
+                    </li>
+                </ul>
+            </div>
+            <div id="canvas_space">
+                <canvas id="main" width="384px" height="384px">図形を表示するには、canvasタグをサポートしたブラウザが必要です。
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="original_image">
+    <div>
+        current canvas<br>
+        <canvas id="current" width="64px" height="64px"></canvas>
+        <br>
+        previous canvas<br>
+        <canvas id="previous" width="64px" height="64px"></canvas>
+        <br>
+    </div>
+    <div>
+        source image<br>
+        <img id="source" src="">
+    </div>
+    <div>
+        buffer image<br>
+        <img id="buffer" src="">
+    </div>
+</div>
+</body>
+</html>
